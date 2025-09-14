@@ -1,0 +1,10 @@
+name: tpa
+version: 1.0
+main: com.rrayy.tpa.tpa
+api-version: '1.21'
+author: rrayy
+description: tpa
+commands:
+  tpa:
+      description: request teleport to another player
+      usage: /tpa <Name> | /tpa accept | /tpa deny
