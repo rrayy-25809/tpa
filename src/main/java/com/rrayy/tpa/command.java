@@ -27,7 +27,7 @@ public class command implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if(sender instanceof Player) {
-            if (args.length > 0) return false; // 아무 인자도 없으면 false
+            if (args.length <= 0) return false; // 아무 인자도 없으면 false
             if (args[0].equals("accept")) {
                 Player acceptor = (Player) sender;
                 Player requester = pls.get(acceptor);
