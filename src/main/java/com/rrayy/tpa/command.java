@@ -32,7 +32,7 @@ public class command implements CommandExecutor {
                 Player acceptor = (Player) sender;
                 Player requester = pls.get(acceptor);
 
-                requester.sendMessage(ChatColor.BOLD+acceptor.getDisplayName()+ChatColor.GREEN+" 님께서 tpa 요청을 "+ChatColor.DARK_GREEN+"[수락]"+ChatColor.GREEN+" 하셨습니다.");
+                requester.sendMessage(main.PREFIX+ChatColor.BOLD+acceptor.getDisplayName()+ChatColor.GREEN+" 님께서 tpa 요청을 "+ChatColor.DARK_GREEN+"[수락]"+ChatColor.GREEN+" 하셨습니다.");
 
                 Location accLocation = acceptor.getLocation();
                 requester.teleport(accLocation);
@@ -42,7 +42,7 @@ public class command implements CommandExecutor {
                 Player acceptor = (Player) sender;
                 Player requester = pls.get(acceptor);
 
-                requester.sendMessage(ChatColor.BOLD+acceptor.getDisplayName()+ChatColor.GREEN+" 님께서 tpa 요청을 "+ChatColor.DARK_RED+"[거절]"+ChatColor.GREEN+" 하셨습니다.");
+                requester.sendMessage(main.PREFIX+ChatColor.BOLD+acceptor.getDisplayName()+ChatColor.GREEN+" 님께서 tpa 요청을 "+ChatColor.DARK_RED+"[거절]"+ChatColor.GREEN+" 하셨습니다.");
                 pls.remove(acceptor, requester);
                 return true;
             } else {
@@ -52,7 +52,7 @@ public class command implements CommandExecutor {
                 if (acceptor == null) return false;
                 if (acceptor == requester) return false; // 요청자와 수락자의 아이디가 같으면 취소
                 if (acceptor.getWorld() != requester.getWorld()){
-                    sender.sendMessage(ChatColor.RED + "다른 월드의 해당 플레이어에게는 tpa 요청을 보낼 수 없습니다.");
+                    sender.sendMessage(main.PREFIX+ChatColor.RED + "다른 월드의 해당 플레이어에게는 tpa 요청을 보낼 수 없습니다.");
                     return true;
                 }
 
@@ -76,7 +76,7 @@ public class command implements CommandExecutor {
         accept.setClickEvent(new ClickEvent(Action.RUN_COMMAND, "/tpa accept"));
         deny.setClickEvent(new ClickEvent(Action.RUN_COMMAND, "/tpa deny"));
 
-        acceptor.sendMessage(ChatColor.GREEN+requester.getName()+ChatColor.AQUA+ "님께서 tpa 요청을 보냈습니다, 수락 시 이동됩니다.");
+        acceptor.sendMessage(main.PREFIX+ChatColor.GREEN+requester.getName()+ChatColor.AQUA+ "님께서 tpa 요청을 보냈습니다, 수락 시 이동됩니다.");
         acceptor.spigot().sendMessage(accept, deny);
     }
 }
