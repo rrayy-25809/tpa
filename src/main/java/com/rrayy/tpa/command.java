@@ -31,11 +31,9 @@ public class command implements CommandExecutor {
             if (args[0].equals("accept")) {
                 Player acceptor = (Player) sender;
                 Player requester = pls.get(acceptor);
-
-                requester.sendMessage(main.PREFIX+ChatColor.BOLD+acceptor.getDisplayName()+ChatColor.GREEN+" 님께서 tpa 요청을 "+ChatColor.DARK_GREEN+"[수락]"+ChatColor.GREEN+" 하셨습니다.");
-
                 Location accLocation = acceptor.getLocation();
                 requester.teleport(accLocation);
+                requester.sendMessage(main.PREFIX+ChatColor.BOLD+acceptor.getDisplayName()+ChatColor.GREEN+" 님께서 tpa 요청을 "+ChatColor.DARK_GREEN+"[수락]"+ChatColor.GREEN+" 하셨습니다.");
                 pls.remove(acceptor, requester);
                 return true;
             } else if (args[0].equals("deny")) {

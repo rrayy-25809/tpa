@@ -6,6 +6,7 @@ import net.md_5.bungee.api.ChatColor;
 
 public class tpa extends JavaPlugin {
     public command command = new command(this);
+    public tpa_list list = new tpa_list(this);
     public final String PREFIX = ChatColor.DARK_AQUA+"§l[TPA] ";
 
     @Override
