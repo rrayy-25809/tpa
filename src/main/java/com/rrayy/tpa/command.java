@@ -33,14 +33,14 @@ public class command implements CommandExecutor {
                 Player requester = pls.get(acceptor);
                 Location accLocation = acceptor.getLocation();
                 requester.teleport(accLocation);
-                requester.sendMessage(main.PREFIX+ChatColor.BOLD+acceptor.getDisplayName()+ChatColor.GREEN+" 님께서 tpa 요청을 "+ChatColor.DARK_GREEN+"[수락]"+ChatColor.GREEN+" 하셨습니다.");
+                requester.sendMessage(main.PREFIX+ChatColor.BOLD+acceptor.getName()+ChatColor.GREEN+" 님께서 tpa 요청을 "+ChatColor.DARK_GREEN+"[수락]"+ChatColor.GREEN+" 하셨습니다.");
                 pls.remove(acceptor, requester);
                 return true;
             } else if (args[0].equals("deny")) {
                 Player acceptor = (Player) sender;
                 Player requester = pls.get(acceptor);
 
-                requester.sendMessage(main.PREFIX+ChatColor.BOLD+acceptor.getDisplayName()+ChatColor.GREEN+" 님께서 tpa 요청을 "+ChatColor.DARK_RED+"[거절]"+ChatColor.GREEN+" 하셨습니다.");
+                requester.sendMessage(main.PREFIX+ChatColor.BOLD+acceptor.getName()+ChatColor.GREEN+" 님께서 tpa 요청을 "+ChatColor.DARK_RED+"[거절]"+ChatColor.GREEN+" 하셨습니다.");
                 pls.remove(acceptor, requester);
                 return true;
             } else {
@@ -55,7 +55,7 @@ public class command implements CommandExecutor {
                 }
 
                 sendtpa(requester, acceptor);
-                sender.sendMessage(main.PREFIX+ChatColor.BOLD+acceptor.getDisplayName()+ChatColor.GREEN+" 님께 tpa 요청을 보냈습니다, 수락 시 이동됩니다.");
+                sender.sendMessage(main.PREFIX+ChatColor.BOLD+acceptor.getName()+ChatColor.GREEN+" 님께 tpa 요청을 보냈습니다, 수락 시 이동됩니다.");
                 return true;
             }
         } else {
